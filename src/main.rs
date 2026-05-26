@@ -13,7 +13,7 @@ async fn main() {
         .route("/hello/:name", get(hello))
         .route("/echo", post(echo));
 
-    let listener = TcpListener::bind("127.0.0.1:5000").await.unwrap();
+    let listener = TcpListener::bind("0.0.0.0:5000").await.unwrap();
     println!("listening on http://{}", listener.local_addr().unwrap());
     axum::serve(listener, app).await.unwrap();
 }
